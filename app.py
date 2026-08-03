@@ -21,10 +21,9 @@ def login():
     <form method="POST">
         UserName:<input type="text" name="username"><br><br>
         Password:<input type="password" name="password"><br><br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" id="login">
     </form>
     '''
-
 @app.route("/welcome")
 def welcome():
     if "username" in session:
