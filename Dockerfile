@@ -32,6 +32,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY app.py .
+COPY selenium_test.py .
 
 # Flask port
 EXPOSE 5000
