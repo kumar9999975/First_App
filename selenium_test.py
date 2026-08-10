@@ -2,28 +2,32 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-options = webdriver.ChromeOptions()
 
-options.binary_location = "/usr/bin/chromium"
+def test_login():
 
-options.add_argument("--headless")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+    options = webdriver.ChromeOptions()
 
-service = Service("/usr/bin/chromedriver")
+    options.binary_location = "/usr/bin/chromium"
 
-driver = webdriver.Chrome(
-    service=service,
-    options=options
-)
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
-driver.get("http://localhost:5000")
+    service = Service("/usr/bin/chromedriver")
 
-driver.find_element(By.NAME, "username").send_keys("admin")
-driver.find_element(By.NAME, "password").send_keys("admin")
+    driver = webdriver.Chrome(
+        service=service,
+        options=options
+    )
 
-driver.find_element(By.ID, "login").click()
+    driver.get("http://localhost:5000")
 
-print("Login test successful")
+    driver.find_element(By.NAME, "username").send_keys("admin")
 
-driver.quit()
+    driver.find_element(By.NAME, "password").send_keys("admin")
+
+    driver.find_element(By.ID, "login").click()
+
+    print("Login test successful")
+
+    driver.quit()
